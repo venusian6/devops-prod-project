@@ -1,3 +1,4 @@
+# k8s/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -10,12 +11,13 @@ spec:
       app: devops-app
   template:
     metadata:
-      lablels:
+      labels:
         app: devops-app
     spec:
       containers:
         - name: devops-app
-          image: devops-prod-app:1.0
+          image: thevenusian/devops-prod-app:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:
@@ -38,5 +40,6 @@ spec:
             httpGet:
               path: /health
               port: 3000
-            initialDelaySeconds:: 5
+            initialDelaySeconds: 5
             periodSeconds: 5
+
