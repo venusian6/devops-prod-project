@@ -23,4 +23,4 @@ jobs:
 
             - name: Docker Push
               run: |
-                    docker push ${{ secrets.DOCKER_USERNAME }}/devops-prod-app1.latest
+                    docker push ${{ secrets.DOCKER_USERNAME }}/devops-prod-app1:latest
